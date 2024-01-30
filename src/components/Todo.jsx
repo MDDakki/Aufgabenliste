@@ -10,6 +10,10 @@ function Todo({ completeTodo, todos, removeTodo, updateTodo}) {
     value: "",
   });
 
+  const handleTodoClick = (id) => {
+    completeTodo(id);
+  };
+
   // funktion zum aktualisierung
   const SubmitUpdate = value => {
     updateTodo(edit.id, value)
