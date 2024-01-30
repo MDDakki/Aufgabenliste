@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // funktion für das erstellen eines todo formular
 function TodoForm(props) {
  const [input, setInput] = useState('');
+
+ const inputRef = useRef(null)
+ useEffect(() => {
+  inputRef.current.focus()
+ })
 
  // funktion zum verarbeiten der eingabe änderung
  const GriffChange = e => {
@@ -29,6 +34,7 @@ function TodoForm(props) {
             value={input} name='text' 
             className='todo__input'
             onChange={GriffChange}
+            ref={inputRef}
             />
             <button className='todo__taste'>Aufgabe hinzufügen</button> 
         </form>
