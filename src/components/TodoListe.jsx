@@ -37,15 +37,15 @@ function TodoListe() {
  }
 
  // funktion zum markieren eines Todos als abgeschlossen oder unvollständig.
- const completeTodo = id => {
+  const completeTodo = id => {
     let updatedTodos = todos.map(todo => {
-        if (todo.id === id) {
-            todo.isComplete = !todo.isComplete;
-        } 
-        return todo;
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete;
+      }
+      return todo;
     });
     setTodos(updatedTodos);
- }
+  };
 
  return (
     <div>

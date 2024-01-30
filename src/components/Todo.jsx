@@ -10,10 +10,6 @@ function Todo({ completeTodo, todos, removeTodo, updateTodo}) {
     value: "",
   });
 
-  const handleTodoClick = (id) => {
-    completeTodo(id);
-  };
-
   // funktion zum aktualisierung
   const SubmitUpdate = value => {
     updateTodo(edit.id, value)
@@ -31,19 +27,26 @@ function Todo({ completeTodo, todos, removeTodo, updateTodo}) {
   // mapping der Todos für die Anzeige
   return todos.map((todo, index) => (
     <div
-      className={todo.isComplete ? "todo__row complete" : "todo__row"}
+      className={todo.isComplete ? "todo__row fertig" : "todo__row"}
       key={index}
-    > 
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
+    >
+      <div key={todo.id} className="aufgabe__container" onClick={() => completeTodo(todo.id)}>
+        <div className={`circle ${todo.isComplete ? "checkmark" : ""}`}>
+          {todo.isComplete && <span>&#10003;</span>}
+        </div>
+        <div className={`aufgabe__text ${todo.isComplete ? "completed" : ""}`}>
+          {todo.text}
+        </div>
       </div>
       <div className="icons">
-        <RiCloseCircleLine 
-        onClick={() => removeTodo(todo.id)}
-        className="icon__loschen"/>
+        <RiCloseCircleLine
+          onClick={() => removeTodo(todo.id)}
+          className="icon__loschen"
+        />
         <TiEdit
-        className="icon__bearbeiten"
-        onClick={() => setEdit({ id: todo.id, value: todo.text})}/>
+          className="icon__bearbeiten"
+          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+        />
       </div>
     </div>
   ));

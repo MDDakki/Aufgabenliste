@@ -100,11 +100,38 @@ h1 {
   cursor: pointer;
 }
 
-.delete__icon {
+.icon__loschen {
   margin-right: 5px;
   color: #fff;
 }
 
-.edit__icon {
+.icon__bearbeiten {
   color: #fff;
 }
+
+.fertig {
+  opacity: 0.4;
+}
+
+.aufgabe__container {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+.aufgabe__text {
+  flex: 1;
+}
+
